@@ -39,3 +39,4 @@ export const timeParts = meets => {
       end: hh2 * 60 + mm2 * 1
     }
   };
+}
