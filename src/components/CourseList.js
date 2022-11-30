@@ -2,13 +2,18 @@ import { terms, getCourseTerm } from '../utilities/times';
 import React, { useState } from 'react';
 import Course from './course.js';
 
+const scheduleChanged = (selected, courses) => (
+  selected.some(course => course !== courses[course.id])
+);
+
 const CourseList = ({ courses }) => {
-  <div className="course-list">
-    {Object.values(courses).map(course => <Course key={course.id} course={course} />)}
-  </div>;
-  
-    const [term, setTerm] = useState('Fall');
+  const [term, setTerm] = useState('Fall');
   const [selected, setSelected] = useState([]);
+
+  if (scheduleChanged(selected, courses)) {
+    setSelected([])
+  };
+  
   const termCourses = Object.values(courses).filter(course => term === getCourseTerm(course));
   
   return (
@@ -25,7 +30,6 @@ const CourseList = ({ courses }) => {
     </>
   );
 };
-
 
 
 const TermButton = ({term, setTerm, checked}) => (
