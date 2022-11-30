@@ -17,7 +17,6 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 const database = getDatabase(firebase);
 
-
       export const useData = (path, transform) => {
         const [data, setData] = useState();
         const [loading, setLoading] = useState(true);
@@ -63,4 +62,5 @@ export const useUserState = () => {
   }, []);
 
   return [user];
+
 };

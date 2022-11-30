@@ -27,6 +27,7 @@ const courseConflict = (course1, course2) => (
 export const getCourseTerm = course => (
   terms[course.id.charAt(0)]
 );
+
 const meetsPat = /^ *((?:M|Tu|W|Th|F)+) +(\d\d?):(\d\d) *[ -] *(\d\d?):(\d\d) *$/;
 
 export const timeParts = meets => {
@@ -38,4 +39,3 @@ export const timeParts = meets => {
       end: hh2 * 60 + mm2 * 1
     }
   };
-};

@@ -22,9 +22,6 @@ const App = () => {
 const Banner = ({ title }) => (
     <h1>{ title }</h1>
 );
-  
-
-
 
 const mapValues = (fn, obj) => (
   Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, fn(value)]))
@@ -39,7 +36,5 @@ const addScheduleTimes = schedule => ({
   title: schedule.title,
   courses: mapValues(addCourseTimes, schedule.courses)
 });
-
-
 
 export default App;
